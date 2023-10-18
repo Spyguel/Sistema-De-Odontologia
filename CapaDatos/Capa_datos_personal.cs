@@ -9,7 +9,7 @@ using CapaEntidad;
 
 namespace CapaDatos
 {
-    internal class Capa_datos_personal
+    public class Capa_datos_personal
     {
         public List<Personal> Listar()
         {
@@ -19,7 +19,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    string query = "select DNI, Nombre, Apellido, Fecha_nacimiento, Email, Contraseña from personal";
+                    string query = "select DNI, ID_categoria, Nombre, Apellido, Genero, Fecha_nacimiento, Email, Contraseña from personal";
                     SqlCommand cmd = new SqlCommand(query, conexion);
                     cmd.CommandType = CommandType.Text;
                     conexion.Open();
@@ -30,8 +30,10 @@ namespace CapaDatos
                         {
                             lista.Add(new Personal {
                                 dni_personal = Convert.ToInt32(dr["DNI"]),
+                                oID_categoria = new categoría() {id_categoria = Convert.ToInt32(dr["ID_categoria"])},
                                 nombre_personal = dr["Nombre"].ToString(),
                                 apellido_personal = dr["Apellido"].ToString(),
+                                oID_genero = new Genero() { genero_ID = Convert.ToInt32(dr["Genero"])},
                                 fecha_nacimiento_personal = dr["Fecha_nacimiento"].ToString(),
                                 email_personal = dr["Email"].ToString(),
                                 contrasena_personal = dr["Contraseña"].ToString()
@@ -40,7 +42,7 @@ namespace CapaDatos
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     lista = new List<Personal>();
                 }

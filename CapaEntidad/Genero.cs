@@ -9,6 +9,5 @@ namespace CapaEntidad
     internal class Genero
     {
         public int genero_ID {get; set;}
-        public string genero { get; set;}
     }
 }

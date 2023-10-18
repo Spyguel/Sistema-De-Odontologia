@@ -52,7 +52,7 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label2.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Transparent;
@@ -61,6 +61,7 @@
             this.label2.Size = new System.Drawing.Size(249, 28);
             this.label2.TabIndex = 1;
             this.label2.Text = "Sistema Odontología";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // iconPictureBox1
@@ -81,14 +82,14 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(279, 62);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(219, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(219, 20);
             this.txtUsuario.TabIndex = 3;
             // 
             // txtClave
             // 
             this.txtClave.Location = new System.Drawing.Point(279, 142);
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(219, 22);
+            this.txtClave.Size = new System.Drawing.Size(219, 20);
             this.txtClave.TabIndex = 4;
             this.txtClave.UseSystemPasswordChar = true;
             // 
@@ -97,7 +98,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(276, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 16);
+            this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Usuario:";
             // 
@@ -106,7 +107,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(276, 112);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 16);
+            this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Contraseña:";
             // 
@@ -159,15 +160,15 @@
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
             this.linkLabel1.Location = new System.Drawing.Point(299, 231);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(179, 16);
+            this.linkLabel1.Size = new System.Drawing.Size(138, 14);
             this.linkLabel1.TabIndex = 9;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Registrar un nuevo usuario";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(592, 272);
             this.Controls.Add(this.linkLabel1);

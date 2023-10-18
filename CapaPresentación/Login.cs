@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaConsultorio;
+using CapaEntidad;
 
 namespace CapaPresentación
 {
@@ -33,13 +35,29 @@ namespace CapaPresentación
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
-        {
-            Inicio form = new Inicio();
-            form.Show();
-            this.Hide();
-
-            form.FormClosing += frm_closing;
             
+        {
+            List<Personal> TEST = new capa_servicio_personal().Listar();
+            Personal opersonal = new capa_servicio_personal().Listar()
+                .Where(u => u.dni_personal == (int.TryParse(txtUsuario.Text, out int dni_personal) ? dni_personal : -1) && u.contrasena_personal == txtClave.Text)
+                .FirstOrDefault();
+
+            if (opersonal != null)
+            {
+                Inicio form = new Inicio();
+                form.Show();
+                this.Hide();
+
+                form.FormClosing += frm_closing;
+
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el usuario", "mensaje",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+
+
+
         }
 
         private void frm_closing(object sender, FormClosingEventArgs e) {
@@ -48,6 +66,16 @@ namespace CapaPresentación
             txtClave.Text = "";
 
             this.Show();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Registro_Personal form = new Registro_Personal();
+            form.Show();
+            this.Hide();
+
+            form.FormClosing += frm_closing;
+
         }
     }
 }
