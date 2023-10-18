@@ -44,10 +44,12 @@
     <Compile Include="categoría.cs" />
     <Compile Include="Ciudades.cs" />
     <Compile Include="Dias.cs" />
+    <Compile Include="Especialidad.cs" />
     <Compile Include="Genero.cs" />
     <Compile Include="Horarios_personal.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="Personal.cs" />
+    <Compile Include="personal_Administrativo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Turnos.cs" />
   </ItemGroup>

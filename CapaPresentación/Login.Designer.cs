@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
@@ -37,7 +38,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,14 +82,14 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(279, 62);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(219, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(219, 22);
             this.txtUsuario.TabIndex = 3;
             // 
             // txtClave
             // 
             this.txtClave.Location = new System.Drawing.Point(279, 142);
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(219, 20);
+            this.txtClave.Size = new System.Drawing.Size(219, 22);
             this.txtClave.TabIndex = 4;
             this.txtClave.UseSystemPasswordChar = true;
             // 
@@ -98,7 +98,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(276, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.Size = new System.Drawing.Size(57, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Usuario:";
             // 
@@ -107,7 +107,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(276, 112);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.Size = new System.Drawing.Size(79, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Contraseña:";
             // 
@@ -151,27 +151,12 @@
             this.iconButton2.UseVisualStyleBackColor = false;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.CornflowerBlue;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(299, 231);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(138, 14);
-            this.linkLabel1.TabIndex = 9;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Registrar un nuevo usuario";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(592, 272);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.label4);
@@ -182,6 +167,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -203,7 +189,6 @@
         private System.Windows.Forms.Label label4;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

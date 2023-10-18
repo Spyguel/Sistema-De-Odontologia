@@ -35,46 +35,49 @@ namespace CapaPresentación
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
-            
         {
             List<Personal> TEST = new capa_servicio_personal().Listar();
-            Personal opersonal = new capa_servicio_personal().Listar()
-                .Where(u => u.dni_personal == (int.TryParse(txtUsuario.Text, out int dni_personal) ? dni_personal : -1) && u.contrasena_personal == txtClave.Text)
-                .FirstOrDefault();
+            Personal opersonal = TEST
+                .FirstOrDefault(u => u.dni_personal == (int.TryParse(txtUsuario.Text, out int dni_personal) ? dni_personal : -1));
 
             if (opersonal != null)
             {
-                Inicio form = new Inicio();
-                form.Show();
-                this.Hide();
-
-                form.FormClosing += frm_closing;
-
+                if (opersonal.contrasena_personal == txtClave.Text)
+                {
+                    Inicio form = new Inicio(opersonal);
+                    form.Show();
+                    this.Hide();
+                    form.FormClosing += frm_closing;
+                }
+                else
+                {
+                    MessageBox.Show("Contraseña incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             else
             {
-                MessageBox.Show("No se encontró el usuario", "mensaje",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("No se encontró el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-
-
         }
+
+
 
         private void frm_closing(object sender, FormClosingEventArgs e) {
 
-            txtUsuario.Text = "";
-            txtClave.Text = "";
 
-            this.Show();
+                txtUsuario.Text = "";
+                txtClave.Text = "";
+
+                this.Show(); // Muestra nuevamente el formulario actual
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Registro_Personal form = new Registro_Personal();
-            form.Show();
+            Sel_tipo_personal frm  = new Sel_tipo_personal();  
+            frm.Show();
             this.Hide();
 
-            form.FormClosing += frm_closing;
+            frm.FormClosing += frm_closing;
 
         }
     }

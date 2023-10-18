@@ -34,6 +34,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +46,11 @@
   <ItemGroup>
     <Compile Include="Capa_datos_personal.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="CP_estadistica.cs" />
+    <Compile Include="CP_registro_paciente.cs" />
+    <Compile Include="CP_registro_personal.cs" />
+    <Compile Include="CP_registro_personal_administrativo.cs" />
+    <Compile Include="CP_turnos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

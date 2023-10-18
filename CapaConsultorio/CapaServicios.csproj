@@ -42,7 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="capa_servicio_personal.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="CS_estadistica.cs" />
+    <Compile Include="CS_registro-personal.cs" />
+    <Compile Include="CS_registro_paciente.cs" />
+    <Compile Include="CS_registro_personal_administrativo.cs" />
+    <Compile Include="CS_registro_turnos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

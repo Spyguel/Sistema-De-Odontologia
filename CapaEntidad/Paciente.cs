@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    internal class Paciente
+    public class Paciente
     {
         public int dni_paciente { get; set; }
 
@@ -16,14 +16,14 @@ namespace CapaEntidad
 
         public int telefono_paciente { get; set; }
 
-        public string fecha_nacimiento_paciente { get; set; }
+        public DateTime fecha_nacimiento_paciente { get; set; }
 
-        public Ciudades ciudad_paciente { get; set; }
+        public int ciudad_paciente { get; set; }
 
         public string convenio_paciente { get; set; }
 
         public string email_paciente { get; set; }
 
-        public Genero genero_paciente { get; set; }
+        public int genero_paciente { get; set; }
     }
 }

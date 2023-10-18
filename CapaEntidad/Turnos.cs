@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    internal class Turnos
+    public class Turnos
     {
         public int turnoID { get; set; }
-        public Paciente pacienteID { get; set; }
-        public Dias diaID { get; set; }
-        public bool estado_turno { get; set; }
-        public string observaciones_turno { get; set; }
+        public int pacienteID { get; set; }
+        public int personalID { get; set; }
+        public bool estado { get; set; }
+        public string Observaciones { get; set; }
+        public DateTime fecha { get; set; }
+        public TimeSpan hora { get; set; }
 
     }
 }
