@@ -12,7 +12,7 @@ namespace CapaPresentación.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.6.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.7.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,11 +26,22 @@ namespace CapaPresentación.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-U4GE1S3;Initial Catalog=sistema_odontologia;User ID=sa;Passwo" +
-            "rd=4230153")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AGUSTIN-PC;Initial Catalog=sistema_odontologia;User ID=sa;Password=42" +
+            "30153")]
         public string sistema_odontologiaConnectionString {
             get {
                 return ((string)(this["sistema_odontologiaConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AGUSTIN-PC;Initial Catalog=sistema_odontologia;Integrated Security=Tr" +
+            "ue")]
+        public string sistema_odontologiaConnectionString1 {
+            get {
+                return ((string)(this["sistema_odontologiaConnectionString1"]));
             }
         }
     }

@@ -8,14 +8,16 @@ using System;
     using System.Drawing;
     using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
-    using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
     namespace CapaPresentación
     {
         public partial class frmTurnos : Form
         {
             public TurnosService servicio_turnos = new TurnosService();
+            public CS_registro_paciente servicio_validar = new CS_registro_paciente();
             public frmTurnos()
             {
                 InitializeComponent();
@@ -71,6 +73,7 @@ using System;
         {
             try
             {
+                Paciente paciente = new Paciente();
                 Turnos turnos = new Turnos();
                 turnos.pacienteID = Convert.ToInt32(textBox1.Text);
                 turnos.personalID = (int)sel_odontologo.SelectedValue;
@@ -81,6 +84,22 @@ using System;
                     MessageBox.Show("No se pueden registrar turnos con fechas anteriores a la fecha actual.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Sale del evento sin registrar el turno
                 }
+
+                string dniIngresado = textBox1.Text.Trim();
+                if (!Regex.IsMatch(dniIngresado, @"^\d{7,8}[A-Za-z]?$"))
+                {
+                    MessageBox.Show("El formato del DNI ingresado no es válido. Debe contener 7 u 8 dígitos seguidos opcionalmente por una letra.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Sale del evento sin registrar el turno
+                }
+
+                paciente.dni_paciente = Convert.ToInt32(dniIngresado);
+
+                if (!servicio_validar.ValidarDNIPaciente(paciente))
+                {
+                    MessageBox.Show("El paciente con el DNI ingresado no existe.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Sale del evento sin registrar el turno
+                }
+
                 Console.WriteLine(lista_horarios.SelectedItem);
                 turnos.hora = (TimeSpan)lista_horarios.SelectedValue;
                 turnos.Observaciones = txt_observaciones.Text.ToString();
@@ -96,6 +115,12 @@ using System;
                     MessageBox.Show("Ya existe un turno para el mismo personal en la misma fecha y hora.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+            catch (FormatException)
+            {
+                MessageBox.Show("El formato del DNI ingresado no es válido. Debe contener exactamente 8 dígitos numéricos.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             catch (Exception ex)
             {
                 // Captura excepciones generales

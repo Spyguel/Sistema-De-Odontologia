@@ -7,7 +7,7 @@
     <ProjectGuid>{E3EDA04A-0898-4AC0-A513-728918FE04B2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CapaPresentación</RootNamespace>
-    <AssemblyName>CapaPresentación</AssemblyName>
+    <AssemblyName>SistemaOdontologíaDemo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -72,6 +72,12 @@
     </Compile>
     <Compile Include="frmTurnos.Designer.cs">
       <DependentUpon>frmTurnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Consulta de pacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Consulta de pacientes.Designer.cs">
+      <DependentUpon>frm_Consulta de pacientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -140,6 +146,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>sistema_odontologiaDataSet6.xsd</DependentUpon>
     </Compile>
+    <Compile Include="sistema_odontologiaDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sistema_odontologiaDataSet7.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UserControlDias.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,6 +166,9 @@
     <EmbeddedResource Include="frmTurnos.resx">
       <DependentUpon>frmTurnos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_Consulta de pacientes.resx">
+      <DependentUpon>frm_Consulta de pacientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +183,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Registro_Personal.resx">
       <DependentUpon>Registro_Personal.cs</DependentUpon>
@@ -267,6 +282,17 @@
     <None Include="sistema_odontologiaDataSet6.xss">
       <DependentUpon>sistema_odontologiaDataSet6.xsd</DependentUpon>
     </None>
+    <None Include="sistema_odontologiaDataSet7.xsc">
+      <DependentUpon>sistema_odontologiaDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="sistema_odontologiaDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sistema_odontologiaDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sistema_odontologiaDataSet7.xss">
+      <DependentUpon>sistema_odontologiaDataSet7.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -280,6 +306,9 @@
       <Project>{de669c91-886f-4dca-84a7-8b3180547d41}</Project>
       <Name>CapaEntidad</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tooth-solid.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

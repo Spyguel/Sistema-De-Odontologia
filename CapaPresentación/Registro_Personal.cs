@@ -33,7 +33,7 @@ namespace CapaPresentación
                 personal.oID_genero = (int)selGenero.SelectedValue;
                 personal.fecha_nacimiento_personal = fechaNacimientoPersonal.Value;
                 personal.dni_personal = Convert.ToInt32(txtDNIpersonal.Text);
-                personal.telefono_personal = Convert.ToInt32(txtTelefonoPersonal.Text);
+                personal.telefono_personal = txtTelefonoPersonal.Text;
                 personal.direccion_personal = txtDireccionPersonal.Text;
                 personal.email_personal = txtEmailPersonal.Text;
                 personal.oID_especialidad = (int)selEspecialidad.SelectedValue;
@@ -119,6 +119,66 @@ namespace CapaPresentación
         }
 
         private void selGenero_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDNIpersonal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefonoPersonal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContrasenaPersonal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombrePersonal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click_1(object sender, EventArgs e)
         {
 
         }

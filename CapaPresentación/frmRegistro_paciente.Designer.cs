@@ -431,6 +431,7 @@
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // label11
             // 
@@ -438,7 +439,7 @@
             this.label11.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(627, 282);
+            this.label11.Location = new System.Drawing.Point(612, 282);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(242, 22);
             this.label11.TabIndex = 41;
@@ -446,10 +447,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(875, 282);
+            this.textBox1.Location = new System.Drawing.Point(860, 282);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 22);
+            this.textBox1.Size = new System.Drawing.Size(180, 22);
             this.textBox1.TabIndex = 40;
             // 
             // frmRegistro_paciente

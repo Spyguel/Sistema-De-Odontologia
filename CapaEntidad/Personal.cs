@@ -15,7 +15,7 @@ namespace CapaEntidad
         public int oID_genero { get; set; }
         public int oID_especialidad { get; set; }
         public string direccion_personal { get; set; }
-        public int telefono_personal { get; set; }
+        public string telefono_personal { get; set; }
         public string email_personal { get; set; }
         public int idTipoPersonal { get; set; }
         public string contrasena_personal { get; set; }

@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActualizarPaciente.cs" />
     <Compile Include="Capa_datos_personal.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="CP_estadistica.cs" />

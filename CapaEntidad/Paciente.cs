@@ -14,7 +14,7 @@ namespace CapaEntidad
 
         public string apellido_paciente { get; set; }
 
-        public int telefono_paciente { get; set; }
+        public string telefono_paciente { get; set; }
 
         public DateTime fecha_nacimiento_paciente { get; set; }
 

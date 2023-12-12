@@ -80,76 +80,42 @@ namespace CapaPresentación
         {
             try
             {
+                // Restricción para el DNI: debe ser solo números y 8 caracteres
+                if (!System.Text.RegularExpressions.Regex.IsMatch(txt_DNI_paciente.Text, @"^\d{8}$"))
+                {
+                    MessageBox.Show("El DNI debe contener solo 8 dígitos numéricos.");
+                    return; // Detiene la ejecución si el DNI no cumple con la restricción
+                }
+
+                // Restricción para nombre y apellido: solo letras
+                if (!System.Text.RegularExpressions.Regex.IsMatch(txt_nombre_paciente.Text, @"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$") ||
+                    !System.Text.RegularExpressions.Regex.IsMatch(txt_apellido_paciente.Text, @"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"))
+                {
+                    MessageBox.Show("El nombre y apellido deben contener solo letras.");
+                    return; // Detiene la ejecución si nombre o apellido no cumplen con la restricción
+                }
+
+                // Restricción para el número de teléfono: no admite letras y deben ser 10 caracteres
+                if (!System.Text.RegularExpressions.Regex.IsMatch(txt_telefono_paciente.Text, @"^\d{10}$"))
+                {
+                    MessageBox.Show("El número de teléfono debe contener solo 10 dígitos numéricos.");
+                    return; // Detiene la ejecución si el teléfono no cumple con la restricción
+                }
+
                 Paciente paciente = new Paciente();
 
-                // Validación del DNI (obligatorio y máximo 8 caracteres)
-                if (string.IsNullOrEmpty(txt_DNI_paciente.Text) || txt_DNI_paciente.Text.Length > 8)
-                {
-                    MessageBox.Show("Por favor, ingrese un DNI válido (máximo 8 caracteres).", "Error al ingresar DNI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // Detener el proceso de registro si la validación falla.
-                }
-
                 paciente.dni_paciente = Convert.ToInt32(txt_DNI_paciente.Text);
-
-                // Validación del nombre (obligatorio y máximo 20 caracteres)
-                if (string.IsNullOrEmpty(txt_nombre_paciente.Text) || txt_nombre_paciente.Text.Length > 20)
-                {
-                    MessageBox.Show("Por favor, ingrese un nombre válido (máximo 20 caracteres).", "Error al ingresar nombre", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 paciente.nombre_paciente = txt_nombre_paciente.Text;
-
-                // Validación del apellido (obligatorio y máximo 20 caracteres)
-                if (string.IsNullOrEmpty(txt_apellido_paciente.Text) || txt_apellido_paciente.Text.Length > 20)
-                {
-                    MessageBox.Show("Por favor, ingrese un apellido válido (máximo 20 caracteres).", "Error al ingresar apellido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 paciente.apellido_paciente = txt_apellido_paciente.Text;
-
-                // Validar si ya existe un paciente con el mismo DNI
-                if (servicio_paciente.ValidarDNIPaciente(paciente))
-                {
-                    MessageBox.Show("Ya existe un paciente con el mismo DNI.", "Error al ingresar DNI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 paciente.fecha_nacimiento_paciente = fechaNacimientoPaciente.Value;
                 paciente.genero_paciente = (int)genero_paciente.SelectedValue;
                 paciente.ciudad_paciente = (int)ciudad_paciente.SelectedValue;
-
-                if (!string.IsNullOrEmpty(txt_telefono_paciente.Text))
-                {
-                    // Validación del número de teléfono (máximo 10 caracteres)
-                    if (txt_telefono_paciente.Text.Length > 10)
-                    {
-                        MessageBox.Show("El número de teléfono no puede tener más de 10 caracteres.", "Error al ingresar teléfono", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    paciente.telefono_paciente = Convert.ToInt32(txt_telefono_paciente.Text);
-                }
-
-                // Validación del correo electrónico (si se proporciona)
-                if (!string.IsNullOrEmpty(txt_email_paciente.Text))
-                {
-                    if (!EsCorreoElectronicoValido(txt_email_paciente.Text))
-                    {
-                        MessageBox.Show("Por favor, ingrese una dirección de correo electrónico válida.", "Error al ingresar email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                }
-
+                paciente.telefono_paciente = txt_telefono_paciente.Text;
                 paciente.email_paciente = txt_email_paciente.Text;
 
                 servicio_paciente.InsertarPaciente(paciente);
                 MessageBox.Show("Registro guardado correctamente.");
-                // Llenar el DataSet con datos actualizados desde la base de datos
                 this.pacienteTableAdapter2.Fill(this.sistema_odontologiaDataSet5.paciente);
-
-                // Actualizar el DataGridView
                 this.datos_paciente.Refresh();
             }
             catch (Exception ex)
@@ -210,6 +176,36 @@ namespace CapaPresentación
             this.pacienteTableAdapter2.Fill(this.sistema_odontologiaDataSet5.paciente);
 
             datos_paciente.Refresh();
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+
+            string apellidoABuscar = textBox1.Text.Trim();
+
+            if (!string.IsNullOrEmpty(apellidoABuscar) && apellidoABuscar.Length >= 2) // Cambiado a al menos 2 caracteres para buscar un apellido
+            {
+                // Filtra el BindingSource por el campo 'apellido_paciente'
+                ((BindingSource)datos_paciente.DataSource).Filter = "Apellido LIKE '%" + apellidoABuscar + "%'";
+
+                if (((BindingSource)datos_paciente.DataSource).Count == 0)
+                {
+                    MessageBox.Show("No se encontraron resultados para el apellido ingresado.");
+                    ((BindingSource)datos_paciente.DataSource).RemoveFilter();
+                    datos_paciente.DataSource = null;
+                    this.pacienteTableAdapter2.Fill(this.sistema_odontologiaDataSet5.paciente);
+                    datos_paciente.DataSource = originalBindingSource;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese al menos 2 caracteres para buscar un apellido.");
+                ((BindingSource)datos_paciente.DataSource).RemoveFilter();
+                datos_paciente.DataSource = null;
+                this.pacienteTableAdapter2.Fill(this.sistema_odontologiaDataSet5.paciente);
+                datos_paciente.DataSource = originalBindingSource;
+            }
 
         }
     }

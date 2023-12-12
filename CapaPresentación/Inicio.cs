@@ -63,7 +63,7 @@ namespace CapaPresentación
 
             if (usuarioActual.idTipoPersonal == 2)
             {
-                pacientesmenu.Visible = false;
+                agregar_paciente.Visible = false;
             }
 
             txt_nombre_usuario.Text = usuarioActual.nombre_personal;
@@ -98,6 +98,30 @@ namespace CapaPresentación
         private void txt_nombre_usuario_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void altaDeMédicosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(recursos_humanos, new Registro_Personal());
+        }
+
+        private void alta_personal_administrativo_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(recursos_humanos, new registro_personal_administrativo());
+        }
+
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void consultarPacientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void consultaPacientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(pacientesmenu, new frm_Consulta_de_pacientes());
         }
     }
 }

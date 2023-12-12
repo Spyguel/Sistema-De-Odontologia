@@ -39,14 +39,16 @@
             this.asignarTurnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pacientesmenu = new FontAwesome.Sharp.IconMenuItem();
             this.agregar_paciente = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaPacientes = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.historial = new FontAwesome.Sharp.IconMenuItem();
             this.consultarHistoriaClínicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estadisticas = new FontAwesome.Sharp.IconMenuItem();
             this.promedioDeTurnosRegistradosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
+            this.recursos_humanos = new FontAwesome.Sharp.IconMenuItem();
             this.altaDePersonalMédicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.altaDeMédicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alta_medicos = new System.Windows.Forms.ToolStripMenuItem();
+            this.alta_personal_administrativo = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +73,7 @@
             this.menuStrip2.Size = new System.Drawing.Size(1358, 118);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
+            this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
             // 
             // label1
             // 
@@ -148,7 +151,8 @@
             // 
             this.pacientesmenu.AutoSize = false;
             this.pacientesmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregar_paciente});
+            this.agregar_paciente,
+            this.consultaPacientes});
             this.pacientesmenu.IconChar = FontAwesome.Sharp.IconChar.HospitalUser;
             this.pacientesmenu.IconColor = System.Drawing.Color.Black;
             this.pacientesmenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -165,6 +169,13 @@
             this.agregar_paciente.Text = "Agregar a un nuevo pacciente";
             this.agregar_paciente.Click += new System.EventHandler(this.agregarAUnNuevoPaccienteToolStripMenuItem_Click);
             // 
+            // consultaPacientes
+            // 
+            this.consultaPacientes.Name = "consultaPacientes";
+            this.consultaPacientes.Size = new System.Drawing.Size(290, 26);
+            this.consultaPacientes.Text = "Consultar pacientes";
+            this.consultaPacientes.Click += new System.EventHandler(this.consultaPacientes_Click);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -173,7 +184,7 @@
             this.pacientesmenu,
             this.historial,
             this.estadisticas,
-            this.iconMenuItem2});
+            this.recursos_humanos});
             this.menuStrip1.Location = new System.Drawing.Point(0, 118);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -222,38 +233,48 @@
             this.promedioDeTurnosRegistradosToolStripMenuItem.Text = "Media de turnos registrados";
             this.promedioDeTurnosRegistradosToolStripMenuItem.Click += new System.EventHandler(this.promedioDeTurnosRegistradosToolStripMenuItem_Click);
             // 
-            // iconMenuItem2
+            // recursos_humanos
             // 
-            this.iconMenuItem2.AutoSize = false;
-            this.iconMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.recursos_humanos.AutoSize = false;
+            this.recursos_humanos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.altaDePersonalMédicoToolStripMenuItem});
-            this.iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.iconMenuItem2.IconColor = System.Drawing.Color.Black;
-            this.iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.iconMenuItem2.Name = "iconMenuItem2";
-            this.iconMenuItem2.Size = new System.Drawing.Size(162, 72);
-            this.iconMenuItem2.Text = "Recursos humanos";
-            this.iconMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.recursos_humanos.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.recursos_humanos.IconColor = System.Drawing.Color.Black;
+            this.recursos_humanos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.recursos_humanos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.recursos_humanos.Name = "recursos_humanos";
+            this.recursos_humanos.Size = new System.Drawing.Size(162, 72);
+            this.recursos_humanos.Text = "Recursos humanos";
+            this.recursos_humanos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // altaDePersonalMédicoToolStripMenuItem
             // 
             this.altaDePersonalMédicoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.altaDeMédicosToolStripMenuItem});
+            this.alta_medicos,
+            this.alta_personal_administrativo});
             this.altaDePersonalMédicoToolStripMenuItem.Name = "altaDePersonalMédicoToolStripMenuItem";
-            this.altaDePersonalMédicoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.altaDePersonalMédicoToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.altaDePersonalMédicoToolStripMenuItem.Text = "Alta de personal";
             // 
-            // altaDeMédicosToolStripMenuItem
+            // alta_medicos
             // 
-            this.altaDeMédicosToolStripMenuItem.Name = "altaDeMédicosToolStripMenuItem";
-            this.altaDeMédicosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.altaDeMédicosToolStripMenuItem.Text = "Alta de médicos";
+            this.alta_medicos.Name = "alta_medicos";
+            this.alta_medicos.Size = new System.Drawing.Size(300, 26);
+            this.alta_medicos.Text = "Alta de médicos";
+            this.alta_medicos.Click += new System.EventHandler(this.altaDeMédicosToolStripMenuItem_Click);
+            // 
+            // alta_personal_administrativo
+            // 
+            this.alta_personal_administrativo.Name = "alta_personal_administrativo";
+            this.alta_personal_administrativo.Size = new System.Drawing.Size(300, 26);
+            this.alta_personal_administrativo.Text = "Alta de personal administrativo";
+            this.alta_personal_administrativo.Click += new System.EventHandler(this.alta_personal_administrativo_Click);
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1358, 820);
             this.Controls.Add(this.txt_nombre_usuario);
@@ -293,10 +314,12 @@
         private FontAwesome.Sharp.IconMenuItem historial;
         private FontAwesome.Sharp.IconMenuItem estadisticas;
         private System.Windows.Forms.ToolStripMenuItem asignarTurnosToolStripMenuItem;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
+        private FontAwesome.Sharp.IconMenuItem recursos_humanos;
         private System.Windows.Forms.ToolStripMenuItem promedioDeTurnosRegistradosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarHistoriaClínicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem altaDePersonalMédicoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem altaDeMédicosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alta_medicos;
+        private System.Windows.Forms.ToolStripMenuItem alta_personal_administrativo;
+        private System.Windows.Forms.ToolStripMenuItem consultaPacientes;
     }
 }

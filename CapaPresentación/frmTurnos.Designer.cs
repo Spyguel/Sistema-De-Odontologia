@@ -227,9 +227,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label4.Location = new System.Drawing.Point(-2, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(273, 25);
+            this.label4.Size = new System.Drawing.Size(251, 25);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Elija un paciente para asignar:";
+            this.label4.Text = "Ingrese el DNI del paciente:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label7

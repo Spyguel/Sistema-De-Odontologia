@@ -11,7 +11,6 @@ namespace CapaConsultorio
     public class CS_registro_paciente
     {
         private CP_registro_paciente capaDatos = new CP_registro_paciente();
-
         public void InsertarPaciente(Paciente paciente)
         {
             capaDatos.InsertarPaciente(paciente);
